@@ -16,7 +16,7 @@ class RoutesDelegator
        $app = $callback();
 
         $app->get('/announcements[/]', Handler\AnnoucementsCreateHandler::class, 'announcement.create');
-        $app->get('/announcements/read[/]', Handler\AnnoucementsReadHandler::class, 'announcement.read');
+        $app->get('/announcements/read/[page/{page:\d+}]', Handler\AnnoucementsReadHandler::class, 'announcement.readCOM');
 
         return $app;
     }
